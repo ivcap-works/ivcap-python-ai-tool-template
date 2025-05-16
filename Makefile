@@ -42,6 +42,7 @@ docker-run: #docker-build
 	docker run -it \
 		-p ${PORT}:${PORT} \
 		--platform=linux/${TARGET_ARCH} \
+		-v ${PROJECT_DIR}:/data \
 		--rm \
 		${DOCKER_NAME}_${TARGET_ARCH} --port ${PORT}
 
@@ -53,5 +54,7 @@ docker-debug: #docker-build
 		--entrypoint bash \
 		${DOCKER_NAME}_${TARGET_ARCH}
 
+batch-service-register-minikube:
+	make IVCAP_SERVICE_FILE=batch_service.json service-register-minikube
 
 .PHONY: run

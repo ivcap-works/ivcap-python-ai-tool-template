@@ -6,7 +6,8 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt --force-reinstall
 
 # Get service files
-ADD tool-service.py  ./
+ADD tool_service.py  ./
+ADD batch_service.py ./
 
 # VERSION INFORMATION
 ARG VERSION ???
@@ -14,4 +15,4 @@ ENV VERSION=$VERSION
 ENV PORT=80
 
 # Command to run
-ENTRYPOINT ["python",  "/app/tool-service.py"]
+ENTRYPOINT ["python",  "/app/tool_service.py"]

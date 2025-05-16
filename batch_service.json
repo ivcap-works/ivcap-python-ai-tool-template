@@ -5,14 +5,14 @@
   "description": "AI tool to help determining if a number is a prime number.",
   "parameters": [],
   "policy": "urn:ivcap:policy:ivcap.open.service",
-  "controller-schema": "urn:ivcap:schema.service.rest.1",
+  "controller-schema": "urn:ivcap:schema.service.batch.1",
   "controller": {
-    "$schema": "urn:ivcap:schema.service.rest.1",
+    "$schema": "urn:ivcap:schema.service.batch.1",
     "image": "#DOCKER_IMG#",
     "port": 80,
     "command": [
       "python",
-      "/app/tool_service.py"
+      "/app/batch_service.py"
     ],
     "resources": {
       "limits": {
@@ -25,7 +25,6 @@
         "ephemeral-storage": "1Gi",
         "memory": "1Gi"
       }
-    },
-    "ready-url": "/_healtz"
+    }
   }
 }
